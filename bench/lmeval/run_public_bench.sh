@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copyright 2026 the macaq-mlx authors. Licensed under the Apache License, Version 2.0.
 #
-# The 13 public benchmarks of docs/report.html (plus WikiText perplexity), zero-shot, no chat template, for each
+# The 13 public benchmarks of docs/report.md (plus WikiText perplexity), zero-shot, no chat template, for each
 # NAME=MODEL_DIR given; then the item-by-item comparison. Results go to RESULTS_DIR/<name>.json.
 #
 # usage: bench/lmeval/run_public_bench.sh RESULTS_DIR LIMIT NAME=MODEL_DIR [NAME=MODEL_DIR ...]

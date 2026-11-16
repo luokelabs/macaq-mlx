@@ -7,7 +7,7 @@ transform; the transformed weights are then quantized to standard MLX affine 4-b
 
 On Qwen3.5-0.8B-Base and Qwen3.5-9B, the converted 4-bit models are about twice as close to the bf16 original as
 MLX's default 4-bit at the same size (mean KL 0.074 vs 0.158 and 0.040 vs 0.094). The cost is 10–15% slower
-generation. Full method and numbers: [docs/report.html](docs/report.html).
+generation. Full method and numbers: [docs/report.md](docs/report.md).
 
 This is research code, tested on two models with one version of MLX. It is not affiliated with the MACaQ authors.
 
@@ -201,7 +201,7 @@ python bench/lmeval/compare_lmeval.py results/lmeval-9b bf16 q4 port
 | `scripts/` | Data preparation, fidelity, speed, prefill memory, logit comparison, memory watchdog. |
 | `bench/lmeval/` | lm-eval runner, CMMLU task generator, item-by-item comparison with McNemar tests. |
 | `results/` | The numbers behind the report. |
-| `docs/report.html` | Full write-up: method, fidelity, public benchmarks, costs, limitations. Regenerated from `results/` by `python docs/build_report.py`. |
+| `docs/report.md` | Full write-up: method, fidelity, public benchmarks, costs, limitations. Generated with its figures (`docs/figures/`) from `results/` by `python docs/build_report.py`. |
 | `tests/` | Unit checks of the transform on random data (`python -m pytest tests`). |
 
 ## Known limitations

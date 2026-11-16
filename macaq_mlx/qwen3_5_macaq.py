@@ -36,7 +36,7 @@ class ModelArgs(qwen3_5.ModelArgs):
 # The pack's config may set macaq.pre_dtype: the precision of the input transform (scale, then Hadamard).
 # "float32" (the default, and what packs without the key get) converts each input to float32 first. "bfloat16"
 # keeps the activations' 16-bit type: less transient memory and less time per layer. On the Qwen3.5-0.8B and 9B
-# ports the quality was unchanged (KL between the two settings 0.0008 on the 9B; see docs/report.html).
+# ports the quality was unchanged (KL between the two settings 0.0008 on the 9B; see docs/report.md).
 PRE_DTYPES = {"float32": mx.float32, "bfloat16": mx.bfloat16, "float16": mx.float16}
 
 
