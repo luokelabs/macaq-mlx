@@ -1,0 +1,18 @@
+# weights and conversion outputs never go into git
+models/
+*.safetensors
+*.ckpt/
+*.npz
+# generated from public Wikipedia by scripts/make_data.py (see data/README.md)
+data/calib.txt
+data/eval.txt
+data/homophone.jsonl
+# lm-eval answer caches and CMMLU task files with local absolute paths
+results/**/cache/
+bench/lmeval/tasks/cmmlu_local/
+# python
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/

@@ -1,0 +1,55 @@
+{
+ "about": "scripts/eval_quality.py against the bf16 original: 100 x 512-token chunks of data/eval.txt (second half scored, 25,600 tokens), 233 homophone items (data/homophone-clean.jsonl).",
+ "mlx_default_4bit": {
+  "source": "Mac Studio M3 Ultra; mlx_lm.convert -q (4-bit, group 64; byte-identical to the default)",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 16.953754,
+  "ppl_test": 19.628958,
+  "kl_mean": 0.157867,
+  "same_top1_pct": 77.984375,
+  "homophone_n": 233,
+  "homophone_acc_ref": 87.124464,
+  "homophone_acc_test": 87.553648,
+  "homophone_same_pick_pct": 96.137339
+ },
+ "macaq_port_gptq_4bit": {
+  "source": "Mac Studio M3 Ultra; macaq transform + GPTQ, embedding 4-bit, float32 input transform",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 16.953754,
+  "ppl_test": 18.179362,
+  "kl_mean": 0.074291,
+  "same_top1_pct": 83.800781,
+  "homophone_n": 233,
+  "homophone_acc_ref": 87.124464,
+  "homophone_acc_test": 88.841202,
+  "homophone_same_pick_pct": 95.27897
+ },
+ "macaq_port_gptq_4bit_bf16_transform": {
+  "source": "Mac mini M2; same pack, input transform in bf16",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 16.965964,
+  "ppl_test": 18.180137,
+  "kl_mean": 0.074332,
+  "same_top1_pct": 83.746094,
+  "homophone_n": 233,
+  "homophone_acc_ref": 87.124464,
+  "homophone_acc_test": 88.412017,
+  "homophone_same_pick_pct": 95.708155
+ },
+ "transform_only_unquantized": {
+  "source": "Mac mini M2; transform without quantization, 20 chunks",
+  "chunks": 20,
+  "tokens_scored": 5120,
+  "ppl_ref": 17.020996,
+  "ppl_test": 17.010554,
+  "kl_mean": 0.000987,
+  "same_top1_pct": 98.144531,
+  "homophone_n": 233,
+  "homophone_acc_ref": 87.124464,
+  "homophone_acc_test": 87.124464,
+  "homophone_same_pick_pct": 100.0
+ }
+}

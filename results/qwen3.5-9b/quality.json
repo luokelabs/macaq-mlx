@@ -1,0 +1,42 @@
+{
+ "about": "scripts/eval_quality.py against the bf16 original (HF Qwen/Qwen3.5-9B c2022362), same text and items as the 0.8B, Mac Studio M3 Ultra.",
+ "mlx_community_4bit": {
+  "source": "mlx-community/Qwen3.5-9B-4bit 8b2b98c0",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 8.348619,
+  "ppl_test": 9.141642,
+  "kl_mean": 0.093672,
+  "same_top1_pct": 86.125,
+  "homophone_n": 233,
+  "homophone_acc_ref": 90.128755,
+  "homophone_acc_test": 90.128755,
+  "homophone_same_pick_pct": 98.712446
+ },
+ "macaq_port_gptq_4bit": {
+  "source": "macaq-port, float32 input transform",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 8.348619,
+  "ppl_test": 8.668303,
+  "kl_mean": 0.039752,
+  "same_top1_pct": 91.214844,
+  "homophone_n": 233,
+  "homophone_acc_ref": 90.128755,
+  "homophone_acc_test": 90.128755,
+  "homophone_same_pick_pct": 99.141631
+ },
+ "bf16_transform_vs_float32_transform": {
+  "source": "reference = the port with float32 transform, test = the same port with pre_dtype bfloat16",
+  "chunks": 100,
+  "tokens_scored": 25600,
+  "ppl_ref": 8.668303,
+  "ppl_test": 8.668171,
+  "kl_mean": 0.000832,
+  "same_top1_pct": 98.652344,
+  "homophone_n": 233,
+  "homophone_acc_ref": 90.128755,
+  "homophone_acc_test": 90.128755,
+  "homophone_same_pick_pct": 100.0
+ }
+}

@@ -1,0 +1,198 @@
+{
+ "about": "scripts/bench_speed.py on a Mac mini M2 (16 GB): 512-token prompt, 128 generated tokens, median of 5 runs after a warm-up; one sitting.",
+ "mlx_default_4bit": {
+  "source": "",
+  "prompt_tokens": 512,
+  "pp_tps_median": 1469.8821294522736,
+  "tg_tps_median": 146.72572376814628,
+  "peak_gb": 1.061420824,
+  "runs": [
+   {
+    "prompt_tps": 1469.8821294522736,
+    "gen_tps": 146.72572376814628,
+    "gen_tokens": 128,
+    "peak_gb": 1.061420824
+   },
+   {
+    "prompt_tps": 1457.0787847842475,
+    "gen_tps": 144.4958103348323,
+    "gen_tokens": 128,
+    "peak_gb": 1.061420824
+   },
+   {
+    "prompt_tps": 1461.0506580280742,
+    "gen_tps": 145.77968517280192,
+    "gen_tokens": 128,
+    "peak_gb": 1.061420824
+   },
+   {
+    "prompt_tps": 1563.115758318847,
+    "gen_tps": 146.75915226957554,
+    "gen_tokens": 128,
+    "peak_gb": 1.061420824
+   },
+   {
+    "prompt_tps": 1470.6811666587269,
+    "gen_tps": 146.87143067275028,
+    "gen_tokens": 128,
+    "peak_gb": 1.061420824
+   }
+  ]
+ },
+ "macaq_port_float32_transform": {
+  "source": "pre_dtype float32",
+  "prompt_tokens": 512,
+  "pp_tps_median": 1366.1483155551664,
+  "tg_tps_median": 124.56945075281514,
+  "peak_gb": 1.077432328,
+  "runs": [
+   {
+    "prompt_tps": 1380.7753094201312,
+    "gen_tps": 126.13782725450453,
+    "gen_tokens": 128,
+    "peak_gb": 1.077432328
+   },
+   {
+    "prompt_tps": 1371.3310783713907,
+    "gen_tps": 124.56945075281514,
+    "gen_tokens": 128,
+    "peak_gb": 1.077432328
+   },
+   {
+    "prompt_tps": 1364.920366725809,
+    "gen_tps": 124.42944518507625,
+    "gen_tokens": 128,
+    "peak_gb": 1.077432328
+   },
+   {
+    "prompt_tps": 1366.1483155551664,
+    "gen_tps": 125.01655798029809,
+    "gen_tokens": 128,
+    "peak_gb": 1.077432328
+   },
+   {
+    "prompt_tps": 1364.9503901691269,
+    "gen_tps": 123.36932712399815,
+    "gen_tokens": 128,
+    "peak_gb": 1.077432328
+   }
+  ]
+ },
+ "macaq_port_float32_transform_mx_compile": {
+  "source": "experiment: transform under mx.compile",
+  "prompt_tokens": 512,
+  "pp_tps_median": 1412.7098113876234,
+  "tg_tps_median": 128.85940097119772,
+  "peak_gb": 1.147768762,
+  "runs": [
+   {
+    "prompt_tps": 1412.7098113876234,
+    "gen_tps": 129.08949923791172,
+    "gen_tokens": 128,
+    "peak_gb": 1.147768762
+   },
+   {
+    "prompt_tps": 1411.4173635438922,
+    "gen_tps": 128.85940097119772,
+    "gen_tokens": 128,
+    "peak_gb": 1.147768762
+   },
+   {
+    "prompt_tps": 1413.6475662232149,
+    "gen_tps": 129.19962393516408,
+    "gen_tokens": 128,
+    "peak_gb": 1.147768762
+   },
+   {
+    "prompt_tps": 1414.3298022687231,
+    "gen_tps": 127.72038814108787,
+    "gen_tokens": 128,
+    "peak_gb": 1.147768762
+   },
+   {
+    "prompt_tps": 1403.10235303888,
+    "gen_tps": 127.29951848832752,
+    "gen_tokens": 128,
+    "peak_gb": 1.147768762
+   }
+  ]
+ },
+ "macaq_port_bf16_transform": {
+  "source": "pre_dtype bfloat16",
+  "prompt_tokens": 512,
+  "pp_tps_median": 1415.9451955412187,
+  "tg_tps_median": 131.25737597221476,
+  "peak_gb": 0.961319832,
+  "runs": [
+   {
+    "prompt_tps": 1417.6192283864425,
+    "gen_tps": 131.55204776223746,
+    "gen_tokens": 128,
+    "peak_gb": 0.961319832
+   },
+   {
+    "prompt_tps": 1415.9451955412187,
+    "gen_tps": 131.99147731736895,
+    "gen_tokens": 128,
+    "peak_gb": 0.961319832
+   },
+   {
+    "prompt_tps": 1417.0959093617978,
+    "gen_tps": 131.25634967320497,
+    "gen_tokens": 128,
+    "peak_gb": 0.961319832
+   },
+   {
+    "prompt_tps": 1408.3799985013577,
+    "gen_tps": 130.39416172665852,
+    "gen_tokens": 128,
+    "peak_gb": 0.961319832
+   },
+   {
+    "prompt_tps": 1411.6631777138782,
+    "gen_tps": 131.25737597221476,
+    "gen_tokens": 128,
+    "peak_gb": 0.961319832
+   }
+  ]
+ },
+ "macaq_port_bf16_transform_mx_compile": {
+  "source": "experiment: transform under mx.compile",
+  "prompt_tokens": 512,
+  "pp_tps_median": 1408.909979681115,
+  "tg_tps_median": 129.74940039420983,
+  "peak_gb": 0.961334168,
+  "runs": [
+   {
+    "prompt_tps": 1408.909979681115,
+    "gen_tps": 130.20676601519352,
+    "gen_tokens": 128,
+    "peak_gb": 0.961334168
+   },
+   {
+    "prompt_tps": 1416.0058895131747,
+    "gen_tps": 130.2768209027338,
+    "gen_tokens": 128,
+    "peak_gb": 0.961334168
+   },
+   {
+    "prompt_tps": 1406.6946886029837,
+    "gen_tps": 129.16770837267893,
+    "gen_tokens": 128,
+    "peak_gb": 0.961334168
+   },
+   {
+    "prompt_tps": 1404.7716762113478,
+    "gen_tps": 129.74940039420983,
+    "gen_tokens": 128,
+    "peak_gb": 0.961334168
+   },
+   {
+    "prompt_tps": 1411.4818879855115,
+    "gen_tps": 126.59592460113123,
+    "gen_tokens": 128,
+    "peak_gb": 0.961334168
+   }
+  ]
+ }
+}

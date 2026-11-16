@@ -1,0 +1,151 @@
+{
+ "about": "Mac Studio M3 Ultra (shared machine), one sitting. bench_speed.py: 512-token prompt + 128 generated tokens, median of 5. prefill_peak.py: one 4096-token prefill; GiB.",
+ "speed": {
+  "mlx_community_4bit": {
+   "source": "",
+   "prompt_tokens": 512,
+   "pp_tps_median": 1147.6455113252528,
+   "tg_tps_median": 114.87724666283812,
+   "peak_gb": 5.925749382,
+   "runs": [
+    {
+     "prompt_tps": 1148.5977809346443,
+     "gen_tps": 114.87724666283812,
+     "gen_tokens": 128,
+     "peak_gb": 5.925749382
+    },
+    {
+     "prompt_tps": 1147.6455113252528,
+     "gen_tps": 115.09523024102066,
+     "gen_tokens": 128,
+     "peak_gb": 5.925749382
+    },
+    {
+     "prompt_tps": 1146.592312197473,
+     "gen_tps": 114.80513917006674,
+     "gen_tokens": 128,
+     "peak_gb": 5.925749382
+    },
+    {
+     "prompt_tps": 1148.7091257582085,
+     "gen_tps": 115.10242763395435,
+     "gen_tokens": 128,
+     "peak_gb": 5.925749382
+    },
+    {
+     "prompt_tps": 1146.8680864518817,
+     "gen_tps": 114.23018853827868,
+     "gen_tokens": 128,
+     "peak_gb": 5.925749382
+    }
+   ]
+  },
+  "macaq_port_float32_transform": {
+   "source": "",
+   "prompt_tokens": 512,
+   "pp_tps_median": 1064.5927441067458,
+   "tg_tps_median": 96.69030527212404,
+   "peak_gb": 6.315688546,
+   "runs": [
+    {
+     "prompt_tps": 1064.7350771348054,
+     "gen_tps": 96.68170880879507,
+     "gen_tokens": 128,
+     "peak_gb": 6.315688546
+    },
+    {
+     "prompt_tps": 1064.5927441067458,
+     "gen_tps": 96.71101333404349,
+     "gen_tokens": 128,
+     "peak_gb": 6.315688546
+    },
+    {
+     "prompt_tps": 1064.4325608519591,
+     "gen_tps": 96.67089600625879,
+     "gen_tokens": 128,
+     "peak_gb": 6.315688546
+    },
+    {
+     "prompt_tps": 1064.4110779914374,
+     "gen_tps": 96.75519545969352,
+     "gen_tokens": 128,
+     "peak_gb": 6.315688546
+    },
+    {
+     "prompt_tps": 1065.0719253056054,
+     "gen_tps": 96.69030527212404,
+     "gen_tokens": 128,
+     "peak_gb": 6.315688546
+    }
+   ]
+  },
+  "macaq_port_bf16_transform": {
+   "source": "",
+   "prompt_tokens": 512,
+   "pp_tps_median": 1094.5433161588512,
+   "tg_tps_median": 104.01381242807763,
+   "peak_gb": 6.012633734,
+   "runs": [
+    {
+     "prompt_tps": 1094.92241376783,
+     "gen_tps": 104.12059630198341,
+     "gen_tokens": 128,
+     "peak_gb": 6.012633734
+    },
+    {
+     "prompt_tps": 1094.5433161588512,
+     "gen_tps": 103.8482399047225,
+     "gen_tokens": 128,
+     "peak_gb": 6.012633734
+    },
+    {
+     "prompt_tps": 1095.400582816287,
+     "gen_tps": 104.070364053619,
+     "gen_tokens": 128,
+     "peak_gb": 6.012633734
+    },
+    {
+     "prompt_tps": 1094.278388018605,
+     "gen_tps": 103.84313574319286,
+     "gen_tokens": 128,
+     "peak_gb": 6.012633734
+    },
+    {
+     "prompt_tps": 1091.4059608887994,
+     "gen_tps": 104.01381242807763,
+     "gen_tokens": 128,
+     "peak_gb": 6.012633734
+    }
+   ]
+  }
+ },
+ "prefill_4096": {
+  "mlx_community_4bit": {
+   "source": "",
+   "tokens": 4096,
+   "weights_gb": 4.692,
+   "peak_gb": 7.266,
+   "transient_gb": 2.574,
+   "seconds": 3.862,
+   "tok_per_s": 1060.6
+  },
+  "macaq_port_float32_transform": {
+   "source": "",
+   "tokens": 4096,
+   "weights_gb": 4.697,
+   "peak_gb": 7.591,
+   "transient_gb": 2.895,
+   "seconds": 4.125,
+   "tok_per_s": 993.0
+  },
+  "macaq_port_bf16_transform": {
+   "source": "",
+   "tokens": 4096,
+   "weights_gb": 4.695,
+   "peak_gb": 7.3,
+   "transient_gb": 2.605,
+   "seconds": 4.006,
+   "tok_per_s": 1022.5
+  }
+ }
+}

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macaq-mlx"
+version = "0.1.0"
+description = "MACaQ's pre-scale + block-Hadamard weight transform ported to MLX for Qwen3.5, with GPTQ 4-bit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "licenses/*"]
+# Tested with exactly mlx 0.32.4 and mlx-lm 0.32.2 (see requirements.txt). The loader subclasses mlx-lm's qwen3_5
+# model, so other mlx-lm versions may need checking.
+dependencies = ["mlx>=0.32.4", "mlx-lm>=0.32.2", "numpy"]
+
+[project.optional-dependencies]
+data = ["datasets", "jieba==0.42.1", "pypinyin==0.55.0"]
+bench = ["lm-eval==0.4.13", "datasets==5.2.0"]
+test = ["pytest"]
+
+[project.scripts]
+macaq-convert = "macaq_mlx.port_convert:main"
+macaq-gptq = "macaq_mlx.port_gptq:main"
+macaq-port = "macaq_mlx.port_layerwise:main"
+
+[tool.setuptools]
+packages = ["macaq_mlx"]

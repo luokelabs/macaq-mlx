@@ -1,0 +1,40 @@
+macaq-mlx
+Copyright 2026 the macaq-mlx authors
+
+This product includes software derived from MACaQ (https://github.com/huawei-csl/MACaQ, commit
+e9d4f89c2110f5c2b1ea1df10c2a8656aed19ff4), licensed under the Apache License, Version 2.0 (see LICENSE).
+The attribution notices of MACaQ's NOTICE file that pertain to this work:
+
+    MACaQ
+    Copyright (c) 2026 the MACAQ authors
+
+    Third-party dependencies, model weights and datasets retain their own terms.
+    The MACaQ Apache-2.0 license does not relicense those components or runtimes.
+
+(MACaQ's NOTICE also describes its modified copy of llama.cpp; no part of that copy is used here.)
+
+What was taken from MACaQ and what was changed:
+  - macaq_mlx/port_convert.py: the D1 pre-scale p = clamp(std(W)^0.75 / rms(x)^0.25, 1e-4, 1e4), rounded to bf16
+    (quantize/macaq_balance.py), the 64-wide normalized Sylvester Hadamard weight transform
+    (llamacpp/llama.cpp/macaq_math.py) and the choice of linears (llamacpp/prepare_weight_only_gguf.py) are
+    re-implemented with MLX for mlx-lm's Qwen3.5 model. The activation statistics are collected with the MLX model
+    instead of llama-imatrix. The output is an mlx-lm model with MLX affine quantization, not a GGUF.
+  - macaq_mlx/qwen3_5_macaq.py: the run-time input transform of MACaQ's llama.cpp fork (src/llama-graph.cpp,
+    build_macaq_pre) is re-implemented as an mlx-lm model type, with a selectable precision (pre_dtype).
+  - macaq_mlx/port_gptq.py, macaq_mlx/port_layerwise.py: MACaQ's second step (IQ4_XS codebook quantization with
+    vector-codebook refinement) is not ported; GPTQ on the transformed weights replaces it.
+
+This product includes software adapted from mlx-lm (https://github.com/ml-explore/mlx-lm), MIT License,
+Copyright © 2023 Apple Inc. (see licenses/mlx-lm-MIT.txt):
+  - macaq_mlx/port_gptq.py: the GPTQ procedure of mlx_lm/quant/gptq.py (mlx-lm 0.32.2, "Copyright © 2025 Apple Inc."),
+    changed to take the Hessian on the transformed input.
+  - macaq_mlx/qwen3_5_macaq.py: structured after mlx_lm/models/prism_hadamard_qwen35.py ("Copyright © 2026 Apple Inc.").
+
+Not included in this repository, with their own terms:
+  - Qwen3.5 model weights (Qwen/Qwen3.5-0.8B-Base, Qwen/Qwen3.5-9B), Apache License 2.0, by the Qwen team. Models
+    converted with this code are derivatives of those weights and keep their license and notices.
+  - Benchmark datasets, downloaded by lm-evaluation-harness under their own licenses. CMMLU (CC BY-NC 4.0) is read
+    from its official CSV release and is not redistributed.
+
+data/homophone-clean.jsonl contains short excerpts of Wikipedia (wikimedia/wikipedia, 20231101.zh), licensed under
+CC BY-SA 4.0; attribution to the Wikipedia contributors. That file is under CC BY-SA 4.0, not Apache-2.0.
